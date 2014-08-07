@@ -48,8 +48,8 @@ function openDB(){
 
 function populateDB(tx) {
     console.log("populateDB")
-    tx.executeSql('CREATE TABLE IF NOT EXISTS WEATHER (id unique, temp, humidity, pressure, windspeed, cloudsall, cityname, icon)');
-    tx.executeSql('INSERT OR REPLACE INTO WEATHER (id, temp, humidity, pressure, windspeed, cloudsall, cityname, icon) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [1, datas.main.temp, datas.main.humidity, datas.main.pressure, datas.wind.speed, datas.clouds.all, datas.name, datas.weather[0].icon]);
+    tx.executeSql('CREATE TABLE IF NOT EXISTS WEATHER (id INTEGER PRIMARY KEY AUTOINCREMENT, temp, humidity, pressure, windspeed, cloudsall, cityname, icon)');
+    tx.executeSql('INSERT OR REPLACE INTO WEATHER (temp, humidity, pressure, windspeed, cloudsall, cityname, icon) VALUES (?, ?, ?, ?, ?, ?, ?)', [datas.main.temp, datas.main.humidity, datas.main.pressure, datas.wind.speed, datas.clouds.all, datas.name, datas.weather[0].icon]);
 }
 
 function errorCB(err) {

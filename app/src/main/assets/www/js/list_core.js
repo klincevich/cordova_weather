@@ -17,6 +17,7 @@ function queryError(err) {
 }
 
 function querySuccess(tx,results){
+var path = "weather-icons/";
     $('#WeatherList').empty();
      var len = results.rows.length;
             console.log("WEATHER table: " + len + " rows found.");
@@ -24,14 +25,69 @@ function querySuccess(tx,results){
                 console.log("Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).temp+
                 "  " + results.rows.item(i).humidity + "  " + results.rows.item(i).pressure + "  " + results.rows.item(i).windspeed +
                 "  " + results.rows.item(i).cloudsall + "  " + results.rows.item(i).cityname + "  " + results.rows.item(i).icon);
-                $('#WeatherList').append('<li><div>' +
+                var icon = results.rows.item(i).icon;
+                var icon_id = icon;
+
+                	switch(icon_id){
+                		case("11d"):
+                		icon = "storm";
+                		break;
+                		case("09d"):
+                		icon = "heavy"
+                		break;
+                		case("10d"):
+                		icon = "heavy"
+                		break;
+                		case("13d"):
+                		icon = "snow"
+                		break;
+                		case("50d"):
+                		icon = "fog"
+                		break;
+                		case("01d"):
+                		icon = "sunny"
+                		break;
+                		case("03d"):
+                		icon = "overcast"
+                		break;
+                		case("04d"):
+                		icon = "overcast"
+                		break;
+                		//for night weather
+                		case("11n"):
+                		icon = "storm";
+                		break;
+                		case("09n"):
+                		icon = "heavy"
+                		break;
+                		case("10n"):
+                		icon = "heavy"
+                		break;
+                		case("13n"):
+                		icon = "snow"
+                		break;
+                		case("50n"):
+                		icon = "fog"
+                		break;
+                		case("01n"):
+                		icon = "sunny"
+                		break;
+                		case("03n"):
+                		icon = "overcast"
+                		break;
+                		case("04n"):
+                		icon = "overcast"
+                		break;
+                	}
+
+                $('#WeatherList').append('<li><br><div style=\'border:1px solid black\'><img src=\''+ path+icon+ '.png\' style=\'float:left;padding-right:20px\' width=\'110\' height=\'110\'/></div><div>' +
                 'Температура: ' + results.rows.item(i).temp + '<br>' +
                 'Влажность: ' + results.rows.item(i).humidity + '<br>' +
                 'Давление : ' + results.rows.item(i).pressure + '<br>' +
                 'Скорость ветра: ' + results.rows.item(i).windspeed + '<br>' +
                 'Хмарность: ' + results.rows.item(i).cloudsall + '<br>' +
                 'Город: ' + results.rows.item(i).cityname +
-                '<div></li>');
+                '</div><br></li>');
         }
 }
 
