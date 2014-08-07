@@ -1,10 +1,6 @@
 package com.example.sergeyklincevich.cordovaphonegap;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.Window;
 import org.apache.cordova.Config;
 import org.apache.cordova.DroidGap;
 
@@ -29,4 +25,6 @@ public class MainActivity extends DroidGap
 	}
 
 
+
+	
 }
