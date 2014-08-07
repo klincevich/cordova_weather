@@ -63,7 +63,7 @@ var app = {
 //        				        { text: 'JPEG', click: function() { alert('Save JPEG'); } }
 //        				      ]
  //       				    },
-        				    { icon: 'img/ic_action_go_to_today.png', text: 'History', show: ActionBar.SHOW_AS_ACTION_ALWAYS | ActionBar.SHOW_AS_ACTION_WITH_TEXT, click: function() { alert('will open the history'); } }
+        				    { icon: 'img/ic_action_go_to_today.png', text: 'History', show: ActionBar.SHOW_AS_ACTION_ALWAYS | ActionBar.SHOW_AS_ACTION_WITH_TEXT, click: function() { window.open('spec.html') } }
         				]);
 
          app.receivedEvent('deviceready');
