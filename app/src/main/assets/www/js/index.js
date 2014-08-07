@@ -55,15 +55,15 @@ var app = {
 
         				// Set menu items
         				ActionBar.setMenu([
-        				    { icon: 'img/new.png', text: 'New File', show: ActionBar.SHOW_AS_ACTION_ALWAYS | ActionBar.SHOW_AS_ACTION_WITH_TEXT, click: function() { alert('Create new file'); } },
-        				    { icon: 'img/save.png', text: 'Save',
-        				      header: { icon: 'img/save.png', text: 'Save as...' },
-        				      items: [
-        				        { text: 'PNG', click: function() { alert('Save PNG'); } },
-        				        { text: 'JPEG', click: function() { alert('Save JPEG'); } }
-        				      ]
-        				    },
-        				    { icon: 'img/search.png', text: 'Search' }
+        				    { icon: 'img/ic_action_refresh.png', text: 'Refresh', show: ActionBar.SHOW_AS_ACTION_ALWAYS | ActionBar.SHOW_AS_ACTION_WITH_TEXT, click: function() { getWeather(); } },
+//        				    { icon: 'img/save.png', text: 'Save',
+//        				      header: { icon: 'img/save.png', text: 'Save as...' },
+//        				      items: [
+//        				        { text: 'PNG', click: function() { alert('Save PNG'); } },
+//        				        { text: 'JPEG', click: function() { alert('Save JPEG'); } }
+//        				      ]
+ //       				    },
+        				    { icon: 'img/ic_action_go_to_today.png', text: 'History', show: ActionBar.SHOW_AS_ACTION_ALWAYS | ActionBar.SHOW_AS_ACTION_WITH_TEXT, click: function() { alert('will open the history'); } }
         				]);
 
          app.receivedEvent('deviceready');
