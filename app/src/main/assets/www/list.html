@@ -7,6 +7,16 @@
     <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
     <script type="text/javascript" src="js/list_core.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script charset="utf-8" src="actionbar.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    // Wait for Cordova to load
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Cordova is ready
+    function onDeviceReady() {
+       initActionBar();
+    }
+    </script>
 </head>
 <body onload="dbConnect();">
     <div data-role="page">

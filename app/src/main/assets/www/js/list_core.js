@@ -33,4 +33,19 @@ function querySuccess(tx,results){
                 'Город: ' + results.rows.item(i).cityname +
                 '<div></li>');
         }
-        }
+}
+
+function initActionBar() {
+    var ActionBar = window.plugins.actionbar;
+    // Show Logo / Title
+    ActionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME | ActionBar.DISPLAY_USE_LOGO);
+    ActionBar.setHomeButtonEnabled(true);
+
+    ActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+   	ActionBar.setHomeCallback(function() { window.open('index.html'); });
+
+    // Set menu items
+    ActionBar.setMenu([
+  	]);
+}
+

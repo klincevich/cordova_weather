@@ -37,32 +37,19 @@ var app = {
         console.log("-------------------init Action bar -------------------------");
 
         var ActionBar = window.plugins.actionbar;
-        				// Set navigation mode to NAVIGATION_MODE_LIST (for the drop down)
-        				ActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-
-        				ActionBar.setListNavigation([
-        				    { text: 'Inbox', click: function() {  } },
-        				    { text: 'Outbox', click: function() {  } }
-        				]);
-
         				// Show Logo / Title
         				ActionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME | ActionBar.DISPLAY_USE_LOGO);
         				ActionBar.setHomeButtonEnabled(true);
 
-        				// Set navigation mode (NAVIGATION_MODE_STANDARD is the default)
         				// ActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         				ActionBar.setHomeCallback(function() { alert('Go up / home'); });
 
         				// Set menu items
         				ActionBar.setMenu([
-        				    { icon: 'img/ic_action_refresh.png', text: 'Refresh', show: ActionBar.SHOW_AS_ACTION_ALWAYS | ActionBar.SHOW_AS_ACTION_WITH_TEXT, click: function() { getWeather(); } },
-//        				    { icon: 'img/save.png', text: 'Save',
-//        				      header: { icon: 'img/save.png', text: 'Save as...' },
-//        				      items: [
-//        				        { text: 'PNG', click: function() { alert('Save PNG'); } },
-//        				        { text: 'JPEG', click: function() { alert('Save JPEG'); } }
-//        				      ]
- //       				    },
+        				    { icon: 'img/ic_action_refresh.png', text: 'Refresh', show: ActionBar.SHOW_AS_ACTION_ALWAYS | ActionBar.SHOW_AS_ACTION_WITH_TEXT, click: function() {
+        				    getWeather();
+        				    window.plugins.toast.showShortCenter('The weather was updated!');
+        				    } },
         				    { icon: 'img/ic_action_go_to_today.png', text: 'History', show: ActionBar.SHOW_AS_ACTION_ALWAYS | ActionBar.SHOW_AS_ACTION_WITH_TEXT, click: function() { window.open('list.html') } }
         				]);
 
