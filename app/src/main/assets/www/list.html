@@ -5,19 +5,20 @@
     <title>History</title>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.4.3.min.js"></script>
     <script type="text/javascript" src="js/list_core.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <script type="text/javascript" src="js/Toast.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.3.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/jqm-demos.css"/>
 </head>
-<body onload="dbConnect();">
-    <div data-role="page">
-        <div data-role="header" data-position="fixed" data-theme="b">
+<body onload="dbGetAll();">
+        <div data-role="header" data-position="fixed" data-theme="b" style="text-align: center;">
             <h1>Weather History</h1>
         </div>
-        <div data-role="content">
-            <ul id="WeatherList">
+        <div data-demo-html="true" class="ui-content jqm-content">
+            <ul id="WeatherList" data-role="listview" class="ui-listview">
             </ul>
         </div>
-    </div>
 </body>
 </html>

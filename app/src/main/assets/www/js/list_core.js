@@ -1,7 +1,7 @@
 /**
  * Created by olga.yudytskaya on 07.08.14.
  */
-function dbConnect(){
+function dbGetAll(){
     var db = window.openDatabase("weather", "1.0", "Weather", 1000000);
     db.transaction(queryDB, queryError);
 }
@@ -80,14 +80,14 @@ var path = "weather-icons/";
                 		break;
                 	}
 
-                $('#WeatherList').append('<li><br><div style=\'border:1px solid black\'><img src=\''+ path+icon+ '.png\' style=\'float:left;padding-right:20px\' width=\'110\' height=\'110\'/></div><div>' +
+                $('#WeatherList').append('<li onclick=\'openWeather(' + results.rows.item(i).id + ');\' class=\'ui-btn ui-btn-icon-right ui-icon-carat-r\'><div><br><div><img src=\''+ path+icon+ '.png\' style=\'float:left;padding-right:20px\' width=\'110\' height=\'110\'/></div><div>' +
                 'Температура: ' + results.rows.item(i).temp + '<br>' +
                 'Влажность: ' + results.rows.item(i).humidity + '<br>' +
                 'Давление : ' + results.rows.item(i).pressure + '<br>' +
                 'Скорость ветра: ' + results.rows.item(i).windspeed + '<br>' +
                 'Хмарность: ' + results.rows.item(i).cloudsall + '<br>' +
                 'Город: ' + results.rows.item(i).cityname +
-                '</div><br></li>');
+                '</div><br><div></li>');
         }
 }
 
@@ -105,3 +105,23 @@ function initActionBar() {
   	]);
 }
 
+function openWeather(id){
+    window.open('details.html?' + id);
+}
+
+function dbDeleteAll(){
+    var db = window.openDatabase("weather", "1.0", "Weather", 1000000);
+    db.transaction(queryDBdelete, queryDeleteError);
+}
+
+function queryDBdelete(tx) {
+    tx.executeSql('DELETE FROM WEATHER', [], querySuccess, queryDeleteError);
+}
+
+function queryDeleteError(err) {
+    alert("Query delete error: "+err.code);
+}
+
+function queryDeleteSuccess() {
+    alert('The records were deleted from DB!');
+}
